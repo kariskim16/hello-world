@@ -1,0 +1,26 @@
+def fn1(x):
+    '''This function does not return anything. It just prints something.'''
+    x += " is silly."
+    print (x)
+    return
+
+def fn2(x):
+    '''This function returns a value.'''
+    x += " is super super silly."
+    return x
+
+def fn3(x):
+    '''This function returns a value.'''
+    x += " is super duper silly."
+    return x
+
+def main():
+    st = input("Type a word: ")
+    fn1(st)
+    print(fn2(st))  # print(x)
+    d = fn3(st)
+    print("The reply from fn3:",d)
+
+    print("The main function is now finished.")
+
+main()
