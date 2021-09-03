@@ -1,0 +1,15 @@
+'''
+
+Disemvoweling!
+
+Person enters a string.
+Python removes all of the vowels from it and prints it back out.
+
+'''
+
+words = input("What word would you like to use to disemvowel them? ")
+print(words)
+
+for the_vowel in ["a", "e", "i", "o", "u", "q"]: #the vowel is larerady attached to str so you can use it as a str variable
+    words = words.replace(the_vowel,"")
+print("I disemvowel your word...", words) #indented within the loop will show step but not indented will show the finish product
