@@ -1,0 +1,83 @@
+'''
+The program asks the person what item of clothing to make, 
+how much fabric is needed, the cost per yard for the fabric. 
+It also asks what the labor rate is and what the markup should be on the costs. 
+Finally, it gives a recommended price for the item.
+
+To stay in business, we need to sell items at a profit: Income > Costs
+To be certain that our income is greater than our costs, we need to know our costs.
+Two common cost categories are materials and labor.
+
+Material costs = yards of fabric x cost per yard
+Labor costs = labor rate ($/hour) x hours needed to make the item
+Total cost = material costs + labor costs
+
+FOR NEXT TIME:
+
+1) Create a function to handle the input of the floating values. Similar to a previous exercise.
+2) Make it so that the program does not crash if the person enters a "bad" input for a numeric value.
+    #make it were it wont crash if they put a letter instead of number
+3) Have the program repeat until the person enters "quit" for the clothing item.
+
+BONUS!!!!
+
+Before the loop starts, ask how many different clothing items will be made.
+Use the input_integer function from hw1.py to handle the input...
+
+Then use a for loop to loop that many times (but still allow "quit" to be entered to exit the program)
+
+
+
+'''
+from hw1 import input_integer 
+
+def input_float(question):
+    while True:
+        x = input(question)
+        try:
+            x = float(x)
+            return x
+        except Exception:
+            print("Please enter a number...")
+
+differ_clothes = input_integer("How many different clothing items will be made? ")
+
+#while True:
+for i in range(differ_clothes):
+    #asking what item of clothing they want to make
+    print("\n\nCALCULATIONS FOR ITEM", i+1, "...")
+
+    item = input("What item of clothing would you like to make? (enter \"quit\" to stop)")
+    if item.lower() == "quit":
+        break
+    #How much fabric is needed
+    yards_of_fabric = input_float("How much is fabric needed? (yards) ")
+
+    #yards_of_fabric = get_float("How much fabric is needed (yards)?")
+    #The cost per yard for the fabric.
+    cost_per_yard = input_float("How much does it cost per yard? ")
+    #What the labor rate is and what the markup should be on the costs.
+    hourly_rate = input_float("What is the labor rate? ")
+    time_on_clothes = input_float("How long will it take to make the clothing? ")
+
+    # Calculate and display the material costs, labor costs, and total costs....
+    material_cost = yards_of_fabric * cost_per_yard
+    labor_cost = hourly_rate * time_on_clothes
+    total_cost = material_cost + labor_cost
+
+    print(f"The material cost is: ${material_cost:.2f}")
+    print(f"The labor cost is: ${labor_cost:.2f}")
+    print(f"The total cost is: ${total_cost:.2f}")
+
+
+        # Ask the user what the markup is...
+    markup_perc = input_float("What is the markup on your item? (Enter the percentage markup)")
+
+        # Show what the retail/sales price needs to be, given the markup.
+    markup_amount = total_cost * markup_perc / 100
+
+    retail_price = total_cost + markup_amount
+    print(f"This will be your retail price: ${retail_price:.2f}")
+
+    #markup_on_costs = input("What is the markup on the cost? ")
+    #Gives a recommended price for the item.
