@@ -1,0 +1,4 @@
+for loop: is great when you know exactly how many times you need to do it (finite numnber)
+while loop: you want it to keep going until a conditon is met, dont know how many times
+def function: when you are repeating the same blocks of coding or to import code
+D.R.Y: Dont, repeat, yourself = use a loop
