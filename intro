@@ -1,0 +1,31 @@
+while True:
+    x = input("What is the start number?: ")
+    try:
+        x = int(x)
+        break
+    except Exception:
+        print("Please enter a number....")
+
+while True:
+    y = input("What is the end number?: ")
+    try: 
+        y = int(y)
+        break
+    except Exception:
+        print("Please enter a number....")
+
+
+
+
+if x > y:
+    step = -1
+    y -= 1
+else:
+    step = +1
+    y += 1
+for n in range(x,y,step):
+    print(n)
+
+# Convert the while loops - entries into a single function that gets called,
+# is passed the text for the question,
+# and returns the entered value as an int.
