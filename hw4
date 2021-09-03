@@ -1,0 +1,40 @@
+'''
+Ask for the user to enter a word, phrase or sentence.
+Reverse the entry, character-for-character, and print it back.
+
+EXAMPLE: I prefer cats to dogs.
+RESPONSE: .sgod ot stac referp I
+
+Do not use Python's reverse function. :)
+
+'''
+#Ask for the user to enter a word, phrase or sentence.
+word = input("Give me a phrase or word and I will rerverse it!: ")
+
+#if user gave me word to reverse it then I will rewrite backwards but how?
+# last letter to be the first letter
+#very nice thinking strats for the enemy team to know what functon or loops to use
+# print(word[-1])
+# print(word[-2])
+# print(word[-3])
+# print(word[-4])
+# print(word[-5])
+#for loop():
+
+#for i in range(1,len(word)):
+
+for i in range(len(word)-1,-1,-1):
+    print(word[i],end='') #end='' makes it into one line aka linefeed
+
+print()
+
+for i in range(len(word),0,-1):
+    print(word[i-1],end='')
+print()
+
+r = ""
+for letter in word:
+    r = letter + r
+print (r)
+
+print(reverse())
