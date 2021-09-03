@@ -1,0 +1,61 @@
+'''
+Your mission, should you choose to accept it...
+
+Get input from the user -- any word or number.
+Stop getting input once the user enters an empty string (nothing).
+Collect the inputs into a list.
+Pass the list to a function.
+The function goes through each list item and prints whether it is a string or a number.
+
+'''
+def fn1(barnacles):
+    print("***The function has been called***")
+    '''
+    To easily print or evaluate each element in a list, we can use one of the following:
+    
+    1) for - range version, gives you an index you can use to access the list
+
+        for i in range(len(my_list)):
+            print (my_list[i])
+
+    2) for - each version, gives you each element from the list one at a time, but without an index
+
+        for item in my_list:
+            print (item)
+
+    3) for - enumerate (combines the above), gives you both an index and the item
+
+        for i, item in enumerate(my_list):
+            print (i, item)
+
+    '''
+
+    # # method 2
+    for j in barnacles:
+        if j.isnumeric():
+            print(f"{j} is an Integer")
+        else:
+            print(f"{j} is a String")
+
+    # method 1
+    for j in range(len(barnacles)): # j is a number from 0 to the length of the list
+        value = barnacles[j]  # value is the object at index j in the list
+        if value.isnumeric():
+            print(f"{value} is an Integer")
+        else:
+            print(f"{value} is a String")
+    
+
+
+    return
+
+w_n_list = []
+while True:
+    user_input = input("What word or number would like to use? ")
+    if user_input == "":
+        break
+    w_n_list.append(user_input)
+
+#fn1(SLKDJFSLD)
+fn1(w_n_list)
+print("I did all the stuff!")
