@@ -1,0 +1,58 @@
+'''
+
+1) Program will ask for a website address (URL) 
+2) Program will ask for a search word
+3) If the search word has a length greater than 3...
+
+    Use the **requests** module... (or beautiful soup)
+    Load the web site
+    Count how many times the word occurs on the web page. 
+        (There are several possible ways of doing this step.)
+        (Can use REGEX **re** or something else.)
+
+Place the above in a loop.
+If the person enters "Q" for the URL, the program quits.
+If the person enters a search word shorter than 4 letters, request the word again.
+
+
+'''
+#request module
+import requests
+#regex
+import re
+
+while True: # main program loop
+
+    #1) Program will ask for a website address (URL)
+    url = input("What is the website address? (enter Q to quit)\n")
+    url = url.strip() #takes off the spaces in the input
+    if url.lower() == "q": #will change it to lowercase letter
+        break # break out of main program loop
+
+    if not url.startswith("http"):
+        url = "https://" + url
+
+    search_word = ""
+    while len(search_word) <3:
+
+        #2) Program will ask for a search word
+        search_word = input("What is the search word? ")
+
+        #3) If the search word has a length greater than 3...
+        #while True:
+        if len(search_word) < 3: #this will bring the website up
+            print("Please enter a longer search word... ")
+    
+    x = requests.get(url)
+    find_text = x.text.find(search_word)  # haystack.find(needle)
+
+    if (find_text == -1):
+        print(f"The word {search_word} was not found at {url}")
+        print("The content is shown, below:")
+        print(x.text)
+
+    pattern = search_word
+    text = x.text
+    re_object = re.findall(pattern,text)
+    print(f"The word {search_word} occurs {len(re_object)} times at the url {url}.")
+
