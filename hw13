@@ -1,0 +1,92 @@
+'''
+For the next session, 
+you get to create an ob-talk translator. :) 
+1) Ask the user to write a normal English sentence. 
+2) Wherever you find a consonant followed by a vowel, you insert "ob" 
+3) Also add "ob" to the beginning of a word that starts with a vowel. 
+4) Don't insert ob before an e at the end of a word (e.g., like) #new hw!!
+5) Print the resulting sentence. For example: "Seth Murray is a philosopher" 
+becomes "Sobeth Moburrobay obis oba phobilobosobophober." Is great fun. 
+:) Start out by just getting the input, then using a loop to go through 
+the input one letter at a time. 
+Then come up with the logic 
+to add (or not add) "ob) depending on the current and last letter.
+'''
+
+def ob_talk_transform(sentence):
+    #seth did not tell me to do this spiltting i did! cuz i am smart
+    #c_v = [] #spilt the sentence
+    #sentence.append(c_v)
+    c_v = sentence.split()
+    #EXCEPTION do not add ob to an "e" that at the end
+    print(c_v)
+
+    for word in c_v: 
+
+        word_out = ""
+        last_letter = ""
+        for i,letter in enumerate(word):
+
+            on_last_letter = (i == len(word) -1) # True or False (boolean) this is how you find the last letter
+            letter = letter.lower()
+            # See if the first letter of word is a vowel...
+            # If so, prepend it with "ob"
+            if i == 0:
+
+                if letter in "aeiou":  # if x in ["a", "e", "i", "o", "u"]
+                    word_out = "ob" + letter
+                else:
+                    word_out = letter
+
+            else:
+                # Insert "ob" inbetween each consanant-vowel pair
+                # We have to keep track of when the last_letter was a consonant
+                # and the current letter is a vowel.
+                
+                if letter in "aeiou" and not last_letter in "aeiou":
+
+                    # don't insert "ob" if the vowel is an e and it is the last
+                    # letter of the word
+                    if letter == "e" and on_last_letter: #last letter of the word 
+
+                        word_out += letter # don't insert ob
+
+                    else:
+                    
+                        word_out = word_out + "ob" + letter # insert ob
+
+                else:
+                    word_out += letter
+
+            last_letter = letter
+
+        print(word_out)
+        # instead of printing out the word, return a string that is all of the transformed words.
+
+'''
+Convert the code as follows:
+1) Create a main function that...
+
+Gets the user input-sentence.
+Passes the input-sentence to a function called ob_talk_transform()
+The main function is called by a if __name__ .... statement set.
+
+2) Create ob_talk_transform(s)
+
+Performs the wonderful obversion
+Returns a string
+
+3) The main functions prints the string that was returned from ob_talk_transorm().
+
+'''
+def main():
+    sentence = input("Write one English sentence: ")
+    ob_talk_transform(sentence)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
