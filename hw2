@@ -1,0 +1,33 @@
+'''
+*** Number guessing game ***
+
+1) Have the computer generate a secret random number (hint: this will require an import)
+2) Using a loop (you choose a while or for loop), ask the user to guess the number.
+3) If the guess is wrong, tell the user whether he is too low or too high.
+4) If the user is correct, show an appropriate message about how awesome the user is. :)
+
+BONUS!!! Figure out how you can import (hint) the function from hw1.py to help with the user's
+input of the number.
+
+'''
+#import hw1
+from hw1 import input_integer # imports only the specified functions -- can call function directly
+import random # imports everything from file -- must use module/library name to call functions
+secret = random.randint(1,16)
+#print(secret)
+count = 0
+while True: 
+    #number = int(input("What is the secret, magic number?: "))
+    number = input_integer("Please enter a number!!")
+    count += 1
+
+    if number == secret:
+        print("You got it right!")
+        print("You have guessed,", count, "times.")
+        break
+    elif number < secret:
+        print("Your guess is too low!")
+    else:
+        print("Your guess is too high!")
+
+    
