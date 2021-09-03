@@ -1,0 +1,60 @@
+'''
+
+In the main area of the program, get two numbers from the user.
+
+Create a function that accepts the two numbers as parameters/arguments.
+The function adds the two numbers together and returns the sum.
+
+The program (main area) prints the sum.
+
+'''
+# Get two number from the user
+user1 = float(input("What is the first number you would like to enter? "))
+user2 = float(input("What is the second number you would like to enter? "))
+
+def sum(n1,n2):  # Python lets us override its own function names
+    return(n1 + n2)
+
+# Some functions do not receive any arguments/parameters.
+# Those functions have empty parentheses.
+def fn2():
+    pass
+
+# Some functions receive arguments/parameters.
+# In most languages, these are in the parentheses, and are
+# separated by commas.
+def fn3(param1):
+    print("This is function 3")
+    print("It received an argument with the value", param1)
+    # Notice that this function has no "return" command.
+    # When a function gets to the end of its code, it automatically
+    # goes back to whatever place "called" it, even if there is
+    # not a "return" command.
+
+def fn4(x,y,z):
+    # Sometimes we want a function to end (return) early.
+    # In that case we force the return
+    if (x + y) == z:
+        return # leave the function -- go back to the calling location
+    print ("x + y != z") # this line will not be executed if x + y = z
+
+def fn5(a,b):
+    # Some functions perform calculations and return the results of 
+    # the calculation
+    product = a * b
+    return product
+
+def fn6(a,b):
+    product = a * b
+    print(product)
+
+x = sum(user1,user2)
+
+print(f"Here is the sum of the two numbers you have enter {x:.1f}")
+
+# Ask the user for another number.
+user3 = float(input("What is the third number you would like to enter? "))
+# Use the sum function to add the new number to the previous sum.
+y = sum(x,user3)
+# Print the result
+print(y)
