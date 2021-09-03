@@ -1,0 +1,28 @@
+'''
+1) Print out numbers between 10 and 100
+
+2) Have the user enter individual words until he enters nothing.
+Collect the entries into a list as they are entered.
+Use a for loop to print out the contents of the list, one line at a time.
+
+3) Also print out the list using join.
+
+
+'''
+#1) Print out numbers between 10 and 100
+for i in range(10,101):
+    print(i)
+
+#2) Have the user enter individual words until he enters nothing. Collect the entries into a list as they are entered. Use a for loop to print out the contents of the list, one line at a time.
+word_list = []
+while True:
+    words = input("What are the individuals words you would like to enter?: ")
+    
+    if len(words) == 0:
+        break
+    word_list.append(words)
+
+#3) print out the list using join, string_name.join(iterable) 
+s = "-"
+s = s.join(word_list)
+print (s)
