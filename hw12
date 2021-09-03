@@ -1,0 +1,108 @@
+'''
+DONE! Ask the user for a number, n.
+DONE! Generate a list of random numbers with length n.
+DONE! Print out the list of random numbers.
+DONE! Loop through the list in your main/root program.
+DONE! Send each number from the list to a function called "is_odd"
+DONE! In is_odd, print out whether the number is odd.
+DONE! is_odd should also return true is the number is odd, and false if it is not.
+Keep a count of the total number of True returns and display it at the end 
+    (e.g., "There were 11 odd numbers in the list")
+
+SECRET BONUS TO BE UNLOCKED LATER....
+
+1) Make it so that the final count report uses correct grammar.
+... "There are 3 odd numbers in the list" or "There is 1 odd number in the list"
+'''
+# if user_input > 1:
+#     print(f"There are {count} odd numbers in the list!")
+# else:
+#     print(f"There is {count} odd number in the list")
+
+'''
+2) Add another function that ALSO counts the number of PRIME numbers.
+... Note each prime number like you do for odd numbers.
+... also keep track of prime numbers and report the total count at the end as with odd numbers.
+'''
+# def count_odd():
+#     if n % 
+def prime(n):
+    # What exactly is a prime number?
+    # a prime number is an integer greater than one that is divisible only by itself and one.
+    # How do ***I*** determine whether a number is a prime number?
+
+    # If n is divisible by any number between 2 and n-1 (with no remainder)
+    # then it isn't a prime number: is_prime = False
+    for i in range(2,n):
+        if n % i == 0:
+            print(n,"is not prime because it is divisible by",i)
+            return False
+
+    print(n,"is a prime number")
+    return True
+
+    
+
+import random
+
+# generate a list of random number with length
+# def randN(N):
+# 	min = pow(10, N-1)
+# 	max = pow(10, N) - 1
+# 	return random.randint(min, max)
+
+def is_odd(n):
+    if n % 2 == 0:
+        print(f"The {n} is even")
+        return False
+    else:
+        print(f"The {n} is odd")
+        return True
+
+def main(): # "main" function, aka driver
+
+    #I would ask for a number from the user
+    user_input = int(input("How many times would you like to generate random numbers? "))
+
+    #that will be the amount of time it will generate the random number
+    # we need a loop, but what kind?
+    n_list = []
+    for i in range(user_input):
+        #it will provide random number x amount of time
+        #put it in the list
+        n_list.append(random.randint(1,1000))
+    print(n_list)
+
+    # Loop through the list in your main/root program.
+    count_odd = 0
+    count_prime = 0
+    for num in n_list:
+        # Send each number from the list to a function called "is_prime"
+        if prime(num) == True:
+            count_prime = count_prime + 1
+
+        if is_odd(num) == True:
+            #Keep a count of the total number of True returns and display it at the end 
+            count_odd = count_odd + 1
+            
+    if count_prime > 1:
+        print(f"There are {count_prime} prime numbers in the list!")
+    elif count_prime == 1:
+        print(f"There is {count_prime} prime number in the list!")
+    else:
+        print(f"There are no prime numbers in the list!")
+
+    if count_odd > 1:
+        print(f"There are {count_odd} odd numbers in the list!")
+    elif count_odd == 1:
+        print(f"There is {count_odd} odd number in the list")
+    else:
+        print("There are no odd numbers!")
+
+    #print(f"There are {count} odd numbers in the list!")
+
+
+
+
+if __name__ == "__main__":
+    main()
