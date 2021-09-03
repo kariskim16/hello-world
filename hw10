@@ -1,0 +1,107 @@
+
+def multiply(n1,n2,n3):
+    product = n1 * n2 * n3
+    # list being passed thru a function?
+    number_list.append(product)
+    if product % 2 == 0:
+        return True
+    else:
+        return False
+
+
+
+'''
+
+Ask the user for three numbers (integers).
+
+Call a function that multiplies all three numbers together.
+The function returns true if the product of the three numbers is even.
+Otherwise it returns false.
+
+The program's main area prints out whether the product is even based on the 
+return from the function.
+
+#MODIFICATION
+
+Change input process so that it is a loop that will continue to collect
+numbers until the user enters 0. The numbers are added to a list, and 
+the list is passed to the function. The function performs the same operations.
+
+'''
+
+# GENERAL PRINCIPLE: WITHIN A FUNCTION only use variable names that are defined in THAT function
+def multiply(x_list):
+    product = 1
+    for item in x_list: 
+        product = product * item
+    return product
+
+
+
+
+
+number_list = []
+while True:
+    number = float(input("What number would you like to type? "))
+    if number == 0:
+        break
+    number_list.append(number)
+#print(number_list)
+
+
+result = multiply(number_list)
+print("This is the answer to your problem", result)
+#print("number_list in the main program:",number_list)
+
+
+
+
+
+
+
+'''
+
+# user1 = float(input("What is the first number? "))
+# user2 = float(input("What is the second number? "))
+# user3 = float(input("What is the  third number? "))
+#not sure how to make a loop for 3 different user input?
+#numbers are added to the list
+number_list = []
+# Change input process so that it is a loop that will continue to collect 
+# numbers until the user enters 0.
+while True:
+    user1 = float(input("What is the first number? "))
+    user2 = float(input("What is the second number? "))
+    user3 = float(input("What is the  third number? "))
+    # number_list.append(user1)
+    # number_list.append(user2)
+    # number_list.append(user3)
+    #print(number_list)
+    if user1 == 0:
+       break
+    elif user2 == 0:
+        break
+    else:
+        break
+#while True:
+# def multiply(n1,n2,n3):
+#     product = n1 * n2 * n3
+#     # list being passed thru a function?
+#     number_list.append(product)
+#     if product % 2 == 0:
+#         return True
+#     else:
+#         return False
+# list being passed thru a function?
+    # number_list.append(user1)
+    # number_list.append(user2)
+    # number_list.append(user3)
+
+#for i in range():
+x = multiply(user2, user2, user3)
+print(x)
+if x:
+    print("The product is even.")
+else:
+    print("The product is odd.")
+'''
